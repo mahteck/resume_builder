@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Resume</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .resume-container {
+            display: flex;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        .left-column {
+            background-color: #2B2D31;
+            width: 30%;
+            padding: 20px;
+            border-radius: 10px;
+            margin-right: 20px;
+            color: white;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        .left-column h2 {
+            color: #FF5733;
+            border-bottom: 2px solid #FF5733;
+            margin-bottom: 10px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .left-column h2 i {
+            margin-right: 8px;
+        }
+
+        .left-column .section p {
+            margin: 10px 0;
+            font-size: 15px;
+        }
+        .skills {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skills li {
+            /* background-color: #e0e0e0;
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            border-radius: 5px; */
+            background: linear-gradient(135deg, #FF5733, #FF8D33);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .skills li:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(255, 87, 51, 0.3);
+        }
+         .right-column {
+            width: 70%;
+            padding: 20px;
+        }
+        .education-section, .experience-section {
+            background-color: #f9f9f9;
+            border-left: 5px solid #FF5733;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .education-section:hover, .experience-section:hover {
+            transform: scale(1.03);
+        }
+        .education-section h2, .experience-section h2 {
+            color: #FF5733;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .education-section p, .experience-section p {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+            color: white;
+        }
+        .right-column {
+            width: 70%;
+            padding: 20px;
+            color: black;
+        }
+        .right-column p{
+            margin: 5px 0;
+            color: black;
+        }
+        .right-column h2{
+            border-bottom: 2px solid #FF0000;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            color: black;
+        }
+        .right-column h1{
+            text-align: center;
+            color: black;
+            width: 100%;
+        }
+        #buttonContainer {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        #buttonContainer button {
+            background-color: #FF5733;
+            border: none;
+            color: white;
+            padding: 12px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #buttonContainer button:hover {
+            background-color: #d04e27;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        footer .social-links {
+            margin-top: 10px;
+        }
+        footer .social-links a {
+            margin: 0 10px;
+        }
+        footer p{
+            font-size: 10px;
+            color: black;
+        }
+
+        /* Add this media query for print */
+        @media print {
+            /* Ensure the resume container does not stretch across the entire page */
+            .resume-container {
+                width: 100%;
+                max-width: 800px;  /* Limiting max width */
+                margin: 0 auto;  /* Center the container horizontally */
+                padding: 0;  /* Remove any extra padding */
+                box-sizing: border-box;  /* Include padding and border in the element's total width and height */
+            }
+
+            .left-column, .right-column {
+                /* padding: 10px; */
+                padding: 5px;
+
+            }
+
+            /* Ensure no additional margin or padding on the body or html */
+            body, html {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            /* Remove margin from left and right */
+            .left-column {
+                width: 30%;
+                /* margin-right: 10px;  */
+                margin-right: 5px;  /* Reduce space between left and right columns */
+
+            }
+
+            .right-column {
+                width: 70%;
+                /* margin-left: 10px;  */
+                margin-left: 5px;  /* Reduce space between left and right columns */
+            }
+
+            /* Hide the download button in the print version */
+            #downloadPdfBtn {
+                display: none;
+            }
+
+            /* Reduce font sizes for better fit in the print layout */
+            .left-column h2, .right-column h2 {
+                font-size: 16px;  /* Slightly smaller font size for titles */
+            }
+
+            .left-column p, .right-column p {
+                font-size: 12px;  /* Reduce font size for better fitting */
+            }
+
+            /* Optional: Fine-tune content spacing */
+            .section {
+                margin-bottom: 10px;
+            }
+
+            /* Adjust social links and footer */
+            footer {
+                margin-top: 20px;
+                font-size: 10px;
+            }
+
+            footer .social-links a {
+                margin: 0 5px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="resumePreview" class="resume-container">
+        <!-- Left Column (Grey Box) -->
+        <div class="left-column">
+            <div id="buttonContainer">
+                <button id="backButton"><i class="fa fa-arrow-left"></i></button>
+                <button id="homeButton"><i class="fa fa-home"></i></button>
+                <button id="downloadPdfBtn"><i class="fa fa-download"></i></button>
+            </div>
+            <div class="section">
+                <h2><i class="fa fa-user"></i> Personal Information</h2>
+                <p><strong>Name:</strong> <span id="nameDisplay"></span></p>
+                <p><strong>Email:</strong> <span id="emailDisplay"></span></p>
+                <p><strong>Cell No:</strong> <span id="cellnoDisplay"></span></p>
+                <p><strong>Address:</strong> <span id="addressDisplay"></span></p>
+
+            </div>
+            <div class="section">
+                <h2><i class="fa fa-cogs"></i> Skills</h2>
+                <ul class="skills" id="skillsDisplay"></ul>
+            </div>
+        </div>
+
+        <!-- Right Column (White Area) -->
+        <div class="right-column">
+            <h1>Your Resume</h1>
+
+            <div class="education-section section">
+                <h2>Education</h2>
+                <p><strong>Qualification:</strong> <span id="educationDisplay"></span></p>
+                <p><strong>Completion Year:</strong> <span id="yearDisplay"></span></p>
+                <p><strong>Completed From:</strong> <span id="fromDisplay"></span></p>
+            </div>
+
+            <div class="experience-section section">
+                <h2>Work Experience</h2>
+                <p><strong>Last Job Title:</strong> <span id="experienceDisplay"></span></p>
+                <p><strong>Organization:</strong> <span id="organizationDisplay"></span></p>
+                <p><strong>Working Period:</strong> <span id="workPeriodDisplay"></span></p>
+                <p><strong>Work Description:</strong> <span id="workDescriptionDisplay"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footercontainer">
+            <p>Copyright ©2024 All rights reserved <a href="http://mahteck.com" target="_blank">MAH-TECK</a></p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/mahteck" target="_blank"><img src="images/facebook.png" height="25px" width="auto" alt="Facebook"/></a>
+                <a href="https://www.instagram.com/mahteck/" target="_blank"><img src="images/instagram.png" height="25px" width="auto" alt="Instagram"/></a>
+                <a href="https://www.youtube.com/@mahteck" target="_blank"><img src="images/youtube.png" height="25px" width="auto" alt="YouTube"/></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+
+            const name = sessionStorage.getItem('name');
+            const email = sessionStorage.getItem('email');
+            const address = sessionStorage.getItem('address');
+            const cellno = sessionStorage.getItem('cellno');
+
+            const education = sessionStorage.getItem('education');
+            const year = sessionStorage.getItem('year');
+            const from = sessionStorage.getItem('from');
+
+            const experience = sessionStorage.getItem('experience');
+            const organization = sessionStorage.getItem('organization');
+            const workPeriod = sessionStorage.getItem('workPeriod');
+            const workDescription = sessionStorage.getItem('workDescription');
+
+            const skills = sessionStorage.getItem('skills');
+    
+            if (name) {
+                document.getElementById('nameDisplay').textContent = name;
+            }
+            if (email) {
+                document.getElementById('emailDisplay').textContent = email;
+            }
+            if (address) {
+                document.getElementById('addressDisplay').textContent = address;
+            }
+            if (cellno) {
+                document.getElementById('cellnoDisplay').textContent = cellno;
+            }
+
+            if (education) {
+                document.getElementById('educationDisplay').textContent = education;
+            }
+            if (year) {
+                document.getElementById('yearDisplay').textContent = year;
+            }
+            if (from) {
+                document.getElementById('fromDisplay').textContent = from;
+            }
+
+            if (experience) {
+                document.getElementById('experienceDisplay').textContent = experience;
+            }
+            if (organization) {
+                document.getElementById('organizationDisplay').textContent = organization;
+            }
+            if (workPeriod) {
+                document.getElementById('workPeriodDisplay').textContent = workPeriod;
+            }
+            if (workDescription) {
+                document.getElementById('workDescriptionDisplay').textContent = workDescription;
+            }
+
+            if (skills) {
+                const skillsList = skills.split(',').map(skill => skill.trim());
+                const skillsDisplay = document.getElementById('skillsDisplay');
+                skillsList.forEach(skill => {
+                    const li = document.createElement('li');
+                    li.textContent = skill;
+                    skillsDisplay.appendChild(li);
+                });
+            }
+        });
+       
+        document.getElementById('downloadPdfBtn').addEventListener('click', () => {
+            const downloadButton = document.getElementById('downloadPdfBtn');
+            const resumePreview = document.getElementById('resumePreview');
+            const backButton = document.getElementById('backButton');
+            const homeButton = document.getElementById('homeButton');
+
+            downloadButton.style.display = 'none';
+            backButton.style.display = 'none';
+            homeButton.style.display = 'none';
+
+            html2pdf()
+                .set({
+                    margin: 0.2,
+                    filename: 'Resume.pdf',
+                    image: { type: 'jpeg', quality: 1 },
+                    html2canvas: { scale: 1, logging: false, scrollX: 0, scrollY: 0 },
+                    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+                })
+                .from(resumePreview)
+                .save()
+                .finally(() => {
+                    downloadButton.style.display = 'block';
+                    backButton.style.display = 'block';
+                    homeButton.style.display = 'block';
+                });
+        });
+
+        document.getElementById('backButton').addEventListener('click', () => {
+            window.history.back();
+        });
+
+        document.getElementById('homeButton').addEventListener('click', () => {
+            window.location.href = 'home.html';
+        });
+        
+    </script>
+</body>
+</html>

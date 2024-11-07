@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Heebo", sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: #07142B;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#button-box {
+    background-color: #E9F5FE;
+    display: inline-block;
+}
+
+#button {
+    border-radius: 5px;
+    border: none;
+    font-family: "Heebo", sans-serif;
+    font-size: 1rem;
+    color: #102B73;
+    background-color: #E9F5FE;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#hero-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #F9FAFF;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+
+#box1 {
+    max-width: 30%;
+    text-align: left;
+}
+
+#box1 h1, #box1 h2 {
+    margin: 10px 0;
+    color: black;
+}
+
+#box1 h2 {
+    margin: 10px 0;
+    color: #102B73;
+}
+
+#box1 p {
+    line-height: 1.5;
+    margin: 20px 0;
+}
+
+#hero-button {
+    background-color: #FBAF38;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    color: #000;
+    cursor: pointer;
+}
+
+#box2 img {
+    max-width: 100%;
+    height: auto;
+}
+
+.footer {
+    background-color: #FAF5F5;
+    color: black; 
+    padding: 20px 0; 
+    text-align: center;
+}
+.footercontainer{
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+}
+.footercontainer a{
+    text-decoration: none;
+}
+.footercontainer p{
+    text-align: right;
+    font-size: 15px;
+    color: black;
+}
+.social-links {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 10px; 
+}
+.social-links a {
+    margin: 0 10px; 
+}
+.social-links img {
+    width: 20px; 
+    height: auto; 
+}
+
+@media (max-width: 768px) {
+    #hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #box1 {
+        max-width: 100%;
+    }
+
+    #box2 img {
+        max-width: 80%;
+    }
+}
+
