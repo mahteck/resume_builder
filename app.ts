@@ -23,11 +23,33 @@ window.addEventListener('DOMContentLoaded', () => {
             const year = (document.getElementById('year') as HTMLInputElement).value;
             const from = (document.getElementById('from') as HTMLInputElement).value;
             
+            // Get user input Second Last Education
+            const education1 = (document.getElementById('education1') as HTMLInputElement).value;
+            const year1 = (document.getElementById('year1') as HTMLInputElement).value;
+            const from1 = (document.getElementById('from1') as HTMLInputElement).value;
+
+            // Get user input Third Last Education
+            const education2 = (document.getElementById('education2') as HTMLInputElement).value;
+            const year2 = (document.getElementById('year2') as HTMLInputElement).value;
+            const from2 = (document.getElementById('from2') as HTMLInputElement).value;
+            
             // Get user input Work Experience
             const experience = (document.getElementById('experience') as HTMLInputElement).value;
             const organization = (document.getElementById('organization') as HTMLInputElement).value;
             const workPeriod = (document.getElementById('workPeriod') as HTMLInputElement).value;
             const workDescription = (document.getElementById('workDescription') as HTMLInputElement).value;
+
+            // Get user input Work Experience
+            const experience1 = (document.getElementById('experience1') as HTMLInputElement).value;
+            const organization1 = (document.getElementById('organization1') as HTMLInputElement).value;
+            const workPeriod1 = (document.getElementById('workPeriod1') as HTMLInputElement).value;
+            const workDescription1 = (document.getElementById('workDescription1') as HTMLInputElement).value;
+
+            // Get user input Work Experience
+            const experience2 = (document.getElementById('experience2') as HTMLInputElement).value;
+            const organization2 = (document.getElementById('organization2') as HTMLInputElement).value;
+            const workPeriod2 = (document.getElementById('workPeriod2') as HTMLInputElement).value;
+            const workDescription2 = (document.getElementById('workDescription2') as HTMLInputElement).value;
 
             // Get user input Skills
             const skills = (document.getElementById('skills') as HTMLInputElement).value;
@@ -42,10 +64,28 @@ window.addEventListener('DOMContentLoaded', () => {
             sessionStorage.setItem('year', year);
             sessionStorage.setItem('from', from);
 
+            sessionStorage.setItem('education1', education1);
+            sessionStorage.setItem('year1', year1);
+            sessionStorage.setItem('from1', from1);
+
+            sessionStorage.setItem('education2', education2);
+            sessionStorage.setItem('year2', year2);
+            sessionStorage.setItem('from2', from2);
+            
             sessionStorage.setItem('experience', experience);
             sessionStorage.setItem('organization', organization);
             sessionStorage.setItem('workPeriod', workPeriod);
             sessionStorage.setItem('workDescription', workDescription);
+
+            sessionStorage.setItem('experience1', experience1);
+            sessionStorage.setItem('organization1', organization1);
+            sessionStorage.setItem('workPeriod1', workPeriod1);
+            sessionStorage.setItem('workDescription1', workDescription1);
+
+            sessionStorage.setItem('experience2', experience2);
+            sessionStorage.setItem('organization2', organization2);
+            sessionStorage.setItem('workPeriod2', workPeriod2);
+            sessionStorage.setItem('workDescription2', workDescription2);
 
             sessionStorage.setItem('skills', skills);
 

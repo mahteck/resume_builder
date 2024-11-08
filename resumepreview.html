@@ -255,21 +255,40 @@
 
         <!-- Right Column (White Area) -->
         <div class="right-column">
-            <h1>Your Resume</h1>
+            <!-- <h1>Your Resume</h1> -->
 
             <div class="education-section section">
                 <h2>Education</h2>
-                <p><strong>Qualification:</strong> <span id="educationDisplay"></span></p>
+                <p><strong>Last Qualification:</strong> <span id="educationDisplay"></span></p>
                 <p><strong>Completion Year:</strong> <span id="yearDisplay"></span></p>
                 <p><strong>Completed From:</strong> <span id="fromDisplay"></span></p>
+                <br/>
+                <p><strong>Qualification:</strong> <span id="education1Display"></span></p>
+                <p><strong>Completion Year:</strong> <span id="year1Display"></span></p>
+                <p><strong>Completed From:</strong> <span id="from1Display"></span></p>
+                <br/>
+                <p><strong>Qualification:</strong> <span id="education2Display"></span></p>
+                <p><strong>Completion Year:</strong> <span id="year2Display"></span></p>
+                <p><strong>Completed From:</strong> <span id="from2Display"></span></p>
             </div>
+            
 
             <div class="experience-section section">
                 <h2>Work Experience</h2>
-                <p><strong>Last Job Title:</strong> <span id="experienceDisplay"></span></p>
+                <p><strong>Last/Current Job Title:</strong> <span id="experienceDisplay"></span></p>
                 <p><strong>Organization:</strong> <span id="organizationDisplay"></span></p>
-                <p><strong>Working Period:</strong> <span id="workPeriodDisplay"></span></p>
+                <p><strong>Service tenure:</strong> <span id="workPeriodDisplay"></span></p>
                 <p><strong>Work Description:</strong> <span id="workDescriptionDisplay"></span></p>
+                <br/>
+                <p><strong>Previous Job Title:</strong> <span id="experience1Display"></span></p>
+                <p><strong>Organization:</strong> <span id="organization1Display"></span></p>
+                <p><strong>Service tenure:</strong> <span id="workPeriod1Display"></span></p>
+                <p><strong>Work Description:</strong> <span id="workDescription1Display"></span></p>
+                <br/>
+                <p><strong>Previous Job Title:</strong> <span id="experience2Display"></span></p>
+                <p><strong>Organization:</strong> <span id="organization2Display"></span></p>
+                <p><strong>Service tenure:</strong> <span id="workPeriod2Display"></span></p>
+                <p><strong>Work Description:</strong> <span id="workDescription2Display"></span></p>
             </div>
         </div>
     </div>
@@ -297,10 +316,28 @@
             const year = sessionStorage.getItem('year');
             const from = sessionStorage.getItem('from');
 
+            const education1 = sessionStorage.getItem('education1');
+            const year1 = sessionStorage.getItem('year1');
+            const from1 = sessionStorage.getItem('from1');
+
+            const education2 = sessionStorage.getItem('education2');
+            const year2 = sessionStorage.getItem('year2');
+            const from2 = sessionStorage.getItem('from2');
+
             const experience = sessionStorage.getItem('experience');
             const organization = sessionStorage.getItem('organization');
             const workPeriod = sessionStorage.getItem('workPeriod');
             const workDescription = sessionStorage.getItem('workDescription');
+
+            const experience1 = sessionStorage.getItem('experience1');
+            const organization1 = sessionStorage.getItem('organization1');
+            const workPeriod1 = sessionStorage.getItem('workPeriod');
+            const workDescription1 = sessionStorage.getItem('workDescription1');
+            
+            const experience2 = sessionStorage.getItem('experience2');
+            const organization2 = sessionStorage.getItem('organization2');
+            const workPeriod2 = sessionStorage.getItem('workPeriod');
+            const workDescription2 = sessionStorage.getItem('workDescription2');
 
             const skills = sessionStorage.getItem('skills');
     
@@ -317,29 +354,78 @@
                 document.getElementById('cellnoDisplay').textContent = cellno;
             }
 
-            if (education) {
+            if (education && year && from) {
                 document.getElementById('educationDisplay').textContent = education;
-            }
-            if (year) {
                 document.getElementById('yearDisplay').textContent = year;
-            }
-            if (from) {
                 document.getElementById('fromDisplay').textContent = from;
-            }
 
-            if (experience) {
+                document.getElementById('education1Display').textContent = education1;
+                document.getElementById('year1Display').textContent = year1;
+                document.getElementById('from1Display').textContent = from1;
+
+                document.getElementById('education2Display').textContent = education2;
+                document.getElementById('year2Display').textContent = year2;
+                document.getElementById('from2Display').textContent = from2;
+
+            } else {
+                document.querySelector('.education-section h2').style.display = 'none';
+            }
+            
+            // Experience section
+            if (experience && organization && workPeriod && workDescription) {
                 document.getElementById('experienceDisplay').textContent = experience;
-            }
-            if (organization) {
                 document.getElementById('organizationDisplay').textContent = organization;
-            }
-            if (workPeriod) {
                 document.getElementById('workPeriodDisplay').textContent = workPeriod;
-            }
-            if (workDescription) {
                 document.getElementById('workDescriptionDisplay').textContent = workDescription;
-            }
 
+                document.getElementById('experience1Display').textContent = experience;
+                document.getElementById('organization1Display').textContent = organization;
+                document.getElementById('workPeriod1Display').textContent = workPeriod;
+                document.getElementById('workDescription1Display').textContent = workDescription;
+
+                document.getElementById('experience2Display').textContent = experience2;
+                document.getElementById('organization2Display').textContent = organization2;
+                document.getElementById('workPeriod2Display').textContent = workPeriod2;
+                document.getElementById('workDescription2Display').textContent = workDescription2;
+
+            } else {
+                document.querySelector('.experience-section h2').style.display = 'none';
+            }
+            
+            // if (education) {
+            //     document.getElementById('educationDisplay').textContent = education;
+            // }
+            // if (year) {
+            //     document.getElementById('yearDisplay').textContent = year;
+            // }
+            // if (from) {
+            //     document.getElementById('fromDisplay').textContent = from;
+            // }
+
+            // if (experience) {
+            //     document.getElementById('experienceDisplay').textContent = experience;
+            // }
+            // if (organization) {
+            //     document.getElementById('organizationDisplay').textContent = organization;
+            // }
+            // if (workPeriod) {
+            //     document.getElementById('workPeriodDisplay').textContent = workPeriod;
+            // }
+            // if (workDescription) {
+            //     document.getElementById('workDescriptionDisplay').textContent = workDescription;
+            // }
+
+            // if (skills) {
+            //     const skillsList = skills.split(',').map(skill => skill.trim());
+            //     const skillsDisplay = document.getElementById('skillsDisplay');
+            //     skillsList.forEach(skill => {
+            //         const li = document.createElement('li');
+            //         li.textContent = skill;
+            //         skillsDisplay.appendChild(li);
+            //     });
+            // }
+
+            // Skills section
             if (skills) {
                 const skillsList = skills.split(',').map(skill => skill.trim());
                 const skillsDisplay = document.getElementById('skillsDisplay');
@@ -348,7 +434,10 @@
                     li.textContent = skill;
                     skillsDisplay.appendChild(li);
                 });
+            } else {
+                document.querySelector('.left-column .section h2').style.display = 'none';  // Hide Skills title if no skills
             }
+
         });
        
         document.getElementById('downloadPdfBtn').addEventListener('click', () => {

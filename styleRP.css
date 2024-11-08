@@ -1,0 +1,205 @@
+html, body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    overflow: visible; /* Ensure nothing gets clipped */
+}
+
+.resume-container {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    flex-grow: 1; 
+    align-items: stretch; /* To make columns equal height */
+    overflow: visible; /* Ensure nothing gets clipped */
+}
+
+.left-column {
+    background-color: #2B2D31;
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    margin-right: 20px;
+    color: white;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+    flex-grow: 1; /* To stretch the left column */
+}
+.left-column h2 {
+    color: #FF5733;
+    border-bottom: 2px solid #FF5733;
+    margin-bottom: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+.left-column h2 i {
+    margin-right: 8px;
+}
+.left-column .section p {
+    margin: 10px 0;
+    font-size: 15px;
+}
+.skills {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.skills li {
+    background: linear-gradient(135deg, #FF5733, #FF8D33);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.skills li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(255, 87, 51, 0.3);
+}
+ .right-column {
+    width: 70%;
+    padding: 20px;
+    color: black;
+    flex-grow: 1; /* To stretch the right column */
+}
+.education-section, .experience-section {
+    background-color: #f9f9f9;
+    border-left: 5px solid #FF5733;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+.education-section:hover, .experience-section:hover {
+    transform: scale(1.03);
+}
+.education-section h2, .experience-section h2 {
+    color: #FF5733;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.education-section p, .experience-section p {
+    color: #333;
+}
+.right-column p{
+    margin: 5px 0;
+    color: black;
+}
+.right-column h2{
+    border-bottom: 2px solid #FF0000;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: black;
+}
+.right-column h1{
+    text-align: center;
+    color: black;
+    width: 100%;
+}
+#buttonContainer {
+    /* display: flex;
+    gap: 10px;
+    margin-bottom: 15px; */
+
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    position: relative; /* Make sure the buttons are not cut off */
+
+}
+#buttonContainer button {
+    background-color: #FF5733;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+
+    position: relative; /* Ensure the buttons are not behind any element */
+    z-index: 999; /* Put buttons on top */
+
+}
+#buttonContainer button:hover {
+    background-color: #d04e27;
+}
+
+/* footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #f4f4f9;
+    border-top: 1px solid #ccc;
+    font-size: 12px;
+    color: black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+} */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #f4f4f9;
+    border-top: 1px solid #ccc;
+    font-size: 12px;
+    color: black;
+    position: fixed; /* Change to fixed */
+    bottom: 0;
+    left: 0;
+}
+footer .social-links {
+    margin-top: 10px;
+}
+footer .social-links a {
+    margin: 0 10px;
+}
+footer p {
+    font-size: 10px;
+    color: black;
+}
+
+/* Print adjustments */
+@media print {
+    .resume-container {
+        margin: 0 auto;
+        padding: 0;
+        box-sizing: border-box;
+        max-width: 800px;
+
+    }
+    .left-column, .right-column {
+        padding: 5px;
+        /* flex-grow: 1; */
+    }
+    /* #downloadPdfBtn, #backButton, #homeButton {
+        display: none;
+    } */
+    footer {
+        width: 100%;
+        font-size: 10px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+}
