@@ -378,10 +378,10 @@
                 document.getElementById('workPeriodDisplay').textContent = workPeriod;
                 document.getElementById('workDescriptionDisplay').textContent = workDescription;
 
-                document.getElementById('experience1Display').textContent = experience;
-                document.getElementById('organization1Display').textContent = organization;
-                document.getElementById('workPeriod1Display').textContent = workPeriod;
-                document.getElementById('workDescription1Display').textContent = workDescription;
+                document.getElementById('experience1Display').textContent = experience1;
+                document.getElementById('organization1Display').textContent = organization1;
+                document.getElementById('workPeriod1Display').textContent = workPeriod1;
+                document.getElementById('workDescription1Display').textContent = workDescription1;
 
                 document.getElementById('experience2Display').textContent = experience2;
                 document.getElementById('organization2Display').textContent = organization2;
@@ -452,10 +452,10 @@
 
             html2pdf()
                 .set({
-                    margin: 0.2,
+                    margin: 0.1,
                     filename: 'Resume.pdf',
-                    image: { type: 'jpeg', quality: 1 },
-                    html2canvas: { scale: 1, logging: false, scrollX: 0, scrollY: 0 },
+                    image: { type: 'jpeg', quality: 2 },
+                    html2canvas: { scale: 2, logging: false, scrollX: 0, scrollY: 0 },
                     jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
                 })
                 .from(resumePreview)
